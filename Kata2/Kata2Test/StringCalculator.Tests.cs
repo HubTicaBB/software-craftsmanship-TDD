@@ -16,5 +16,15 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_OneNumber_ReturnsThatNumber()
+        {
+            var expected = 1;
+
+            var result = stringCalculator.Add("1");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
