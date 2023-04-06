@@ -98,5 +98,19 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void GetCalledCount_CalledMultipleTimes_ReturnsCount()
+        {
+            var expected = 3;
+
+            stringCalculator.Add("1");
+            stringCalculator.Add("1,2");
+            stringCalculator.Add("1,2,3");
+
+            var result = stringCalculator.GetCalledCount();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
