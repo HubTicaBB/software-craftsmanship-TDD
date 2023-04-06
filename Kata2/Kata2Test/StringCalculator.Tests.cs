@@ -66,5 +66,12 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_NegativeNumber_Throws()
+        {
+            var exception = Assert.Throws<Exception>(() => stringCalculator.Add("-1"));
+            Assert.That(exception.Message, Is.EqualTo("Negatives not allowed: -1"));
+        }
     }
 }
