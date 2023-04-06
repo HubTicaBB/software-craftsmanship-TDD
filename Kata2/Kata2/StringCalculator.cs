@@ -3,6 +3,8 @@
 public class StringCalculator
 {
     public static readonly string[] defaultDelimiters = { ",", "\n" };
+    public static readonly string delimiterStartTag = "//";
+    public static readonly string delimiterEndTag = "\n";
 
     public int Add(string numbers)
     {
@@ -26,8 +28,6 @@ public class StringCalculator
     private string[] Split(string numbers)
     {
         var customDelimiter = "";
-        var delimiterStartTag = "//";
-        var delimiterEndTag = "\n";
 
         if (numbers.StartsWith(delimiterStartTag))
         {
