@@ -9,6 +9,6 @@ public class StringCalculator
             return 0;
         };
 
-        throw new NotImplementedException();
+        return int.Parse(numbers);
     }
 }
