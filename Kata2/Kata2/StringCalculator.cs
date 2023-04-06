@@ -23,6 +23,7 @@ public class StringCalculator
 
     private string[] Split(string numbers)
     {
-        return numbers.Split(",");
+        var delimiters = new string[] { ",", "\n" };
+        return numbers.Split(delimiters, StringSplitOptions.None);
     }
 }
