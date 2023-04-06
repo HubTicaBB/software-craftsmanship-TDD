@@ -18,7 +18,7 @@ namespace Kata2Test
         }
 
         [Test]
-        public void Add_OneNumber_ReturnsThatNumber()
+        public void Add_OneNumber_ReturnsItsValue()
         {
             var expected = 1;
 

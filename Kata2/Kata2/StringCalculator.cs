@@ -9,6 +9,8 @@ public class StringCalculator
             return 0;
         };
 
-        return int.Parse(numbers);
+        int.TryParse(numbers, out int value);
+        
+        return value;
     }
 }
