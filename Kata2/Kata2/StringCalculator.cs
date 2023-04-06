@@ -5,9 +5,9 @@ public class StringCalculator
     public static readonly string[] defaultDelimiters = { ",", "\n" };
     public static readonly string delimiterStartTag = "//";
     public static readonly string delimiterEndTag = "\n";
+    public static readonly int maxValidNumber = 1000;
 
     public int calledCount = 0;
-
 
     public int Add(string numbers)
     {
@@ -41,12 +41,12 @@ public class StringCalculator
 
     private int[] ParseNumbers(string numbers)
     {
-        return Array.ConvertAll(Split(numbers), GetCustomConverter());
+        return Array.ConvertAll(Split(numbers), GetValidNumbersConverter());
     }
 
-    private Converter<string, int> GetCustomConverter()
+    private Converter<string, int> GetValidNumbersConverter()
     {
-        return number => int.TryParse(number, out var parsedNumber) && parsedNumber <= 1000
+        return number => int.TryParse(number, out var parsedNumber) && parsedNumber <= maxValidNumber
             ? parsedNumber
             : 0;
     }
