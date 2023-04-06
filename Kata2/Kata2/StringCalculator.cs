@@ -11,8 +11,14 @@ public class StringCalculator
 
     private int[] ParseNumbers(string numbers)
     {
-        return Array.ConvertAll(Split(numbers), s =>
-            int.TryParse(s, out var i) ? i : 0);
+        return Array.ConvertAll(Split(numbers), GetCustomConverter());
+    }
+
+    private Converter<string, int> GetCustomConverter()
+    {
+        return number => int.TryParse(number, out var parsedNumber) 
+            ? parsedNumber
+            : 0;
     }
 
     private string[] Split(string numbers)
