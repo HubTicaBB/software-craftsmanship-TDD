@@ -27,6 +27,13 @@ public class StringCalculator
 
     private string[] Split(string numbers)
     {
+        string[] delimiters = GetDelimiters(numbers);
+
+        return numbers.Split(delimiters, StringSplitOptions.None);
+    }
+
+    private string[] GetDelimiters(string numbers)
+    {
         var customDelimiter = "";
 
         if (numbers.StartsWith(delimiterStartTag))
@@ -34,13 +41,10 @@ public class StringCalculator
             var from = numbers.IndexOf(delimiterStartTag) + delimiterStartTag.Length;
             var to = numbers.IndexOf(delimiterEndTag);
             customDelimiter = numbers[from..to];
-            numbers = numbers[to..];
         }
 
-        string[] delimiters = customDelimiter != string.Empty
+        return customDelimiter != string.Empty
             ? new string[] { customDelimiter }
             : defaultDelimiters;
-
-        return numbers.Split(delimiters, StringSplitOptions.None);
     }
 }
