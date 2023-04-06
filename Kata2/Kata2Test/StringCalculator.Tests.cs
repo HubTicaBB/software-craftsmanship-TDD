@@ -56,5 +56,15 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_WithCustomSeparator_ReturnsSum()
+        {
+            var expected = 3;
+
+            var result = stringCalculator.Add("//;\n1;2");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
