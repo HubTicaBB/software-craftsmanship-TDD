@@ -73,5 +73,13 @@ namespace Kata2Test
             var exception = Assert.Throws<Exception>(() => stringCalculator.Add("-1"));
             Assert.That(exception.Message, Is.EqualTo("Negatives not allowed: -1"));
         }
+
+
+        [Test]
+        public void Add_MultipleNegativeNumbers_Throws()
+        {
+            var exception = Assert.Throws<Exception>(() => stringCalculator.Add("-1,-2"));
+            Assert.That(exception.Message, Is.EqualTo("Negatives not allowed: -1, -2"));
+        }
     }
 }
