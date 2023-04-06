@@ -36,5 +36,15 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_UnknownAmountOfNumbers_ReturnsTheirSum()
+        {
+            var expected = 15;
+
+            var result = stringCalculator.Add("1,2,3,4,5");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
