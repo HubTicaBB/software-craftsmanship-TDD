@@ -6,8 +6,13 @@ public class StringCalculator
     public static readonly string delimiterStartTag = "//";
     public static readonly string delimiterEndTag = "\n";
 
+    public int calledCount = 0;
+
+
     public int Add(string numbers)
     {
+        calledCount++;
+
         var values = ParseNumbers(numbers);
 
         if (ContainsNegativeNumbers(values))
@@ -20,7 +25,7 @@ public class StringCalculator
 
     public int GetCalledCount()
     {
-        throw new NotImplementedException();
+        return calledCount;
     }
 
     private string FindNegativeNumbers(int[] values)
