@@ -10,13 +10,22 @@ public class StringCalculator
     {
         var values = ParseNumbers(numbers);
 
-        if (values.Any(number => number < 0))
+        if (ContainsNegativeNumbers(values))
         {
-            var negativeNumber = Array.Find(values, number => number < 0);
-            throw new Exception($"Negatives not allowed: {negativeNumber}");
+            throw new Exception($"Negatives not allowed: {FindNegativeNumber(values)}");
         }
 
         return values.Sum();
+    }
+
+    private int FindNegativeNumber(int[] values)
+    {
+        return Array.Find(values, number => number < 0);
+    }
+
+    private bool ContainsNegativeNumbers(int[] values)
+    {
+        return values.Any(number => number < 0);
     }
 
     private int[] ParseNumbers(string numbers)
