@@ -46,7 +46,7 @@ public class StringCalculator
 
     private Converter<string, int> GetCustomConverter()
     {
-        return number => int.TryParse(number, out var parsedNumber) 
+        return number => int.TryParse(number, out var parsedNumber) && parsedNumber <= 1000
             ? parsedNumber
             : 0;
     }
