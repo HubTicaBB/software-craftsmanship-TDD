@@ -4,7 +4,13 @@ namespace Kata2Test
 {
     public class StringCalculatorSpecs
     {
-        StringCalculator stringCalculator = new();
+        private StringCalculator stringCalculator;
+
+        [SetUp]
+        public void SetUp()
+        {
+            stringCalculator = new StringCalculator();
+        }
 
 
         [Test]
