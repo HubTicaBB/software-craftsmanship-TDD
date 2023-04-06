@@ -4,13 +4,19 @@ public class StringCalculator
 {
     public int Add(string numbers)
     {
-        if (numbers == string.Empty)
-        {
-            return 0;
-        };
-
-        var values = Array.ConvertAll(numbers.Split(","), int.Parse);
+        var values = ParseNumbers(numbers);
 
         return values.Sum();
+    }
+
+    private int[] ParseNumbers(string numbers)
+    {
+        return Array.ConvertAll(Split(numbers), s =>
+            int.TryParse(s, out var i) ? i : 0);
+    }
+
+    private string[] Split(string numbers)
+    {
+        return numbers.Split(",");
     }
 }
