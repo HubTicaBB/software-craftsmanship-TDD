@@ -12,15 +12,16 @@ public class StringCalculator
 
         if (ContainsNegativeNumbers(values))
         {
-            throw new Exception($"Negatives not allowed: {FindNegativeNumber(values)}");
+            throw new Exception($"Negatives not allowed: {FindNegativeNumbers(values)}");
         }
 
         return values.Sum();
     }
 
-    private int FindNegativeNumber(int[] values)
+    private string FindNegativeNumbers(int[] values)
     {
-        return Array.Find(values, number => number < 0);
+        var negativeNumbers = Array.FindAll(values, number => number < 0);
+        return string.Join(", ", negativeNumbers);
     }
 
     private bool ContainsNegativeNumbers(int[] values)
