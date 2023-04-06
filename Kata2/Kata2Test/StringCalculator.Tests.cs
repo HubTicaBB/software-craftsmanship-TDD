@@ -26,5 +26,15 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_TwoNumbers_ReturnsTheirSum()
+        {
+            var expected = 3;
+
+            var result = stringCalculator.Add("1,2");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
