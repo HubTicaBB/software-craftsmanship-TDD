@@ -9,8 +9,8 @@ public class StringCalculator
             return 0;
         };
 
-        int.TryParse(numbers, out int value);
-        
-        return value;
+        var values = Array.ConvertAll(numbers.Split(","), int.Parse);
+
+        return values.Sum();
     }
 }
