@@ -18,6 +18,11 @@ public class StringCalculator
         return values.Sum();
     }
 
+    public int GetCalledCount()
+    {
+        throw new NotImplementedException();
+    }
+
     private string FindNegativeNumbers(int[] values)
     {
         var negativeNumbers = Array.FindAll(values, number => number < 0);

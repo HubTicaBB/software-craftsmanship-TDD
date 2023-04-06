@@ -81,5 +81,16 @@ namespace Kata2Test
             var exception = Assert.Throws<Exception>(() => stringCalculator.Add("-1,-2"));
             Assert.That(exception.Message, Is.EqualTo("Negatives not allowed: -1, -2"));
         }
+
+        [Test]
+        public void GetCalledCount_CalledOnce_ReturnsOne()
+        {
+            var expected = 1;
+
+            stringCalculator.Add("1");
+            var result = stringCalculator.GetCalledCount();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
