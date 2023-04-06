@@ -2,6 +2,8 @@
 
 public class StringCalculator
 {
+    public static readonly string[] delimiters = { ",", "\n" };
+
     public int Add(string numbers)
     {
         var values = ParseNumbers(numbers);
@@ -23,7 +25,6 @@ public class StringCalculator
 
     private string[] Split(string numbers)
     {
-        var delimiters = new string[] { ",", "\n" };
         return numbers.Split(delimiters, StringSplitOptions.None);
     }
 }
