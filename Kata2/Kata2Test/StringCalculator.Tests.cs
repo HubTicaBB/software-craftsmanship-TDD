@@ -112,5 +112,15 @@ namespace Kata2Test
 
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Add_BiggerThan1000_IgnoresTheNumber()
+        {
+            var expected = 2;
+
+            var result = stringCalculator.Add("2,1001");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
